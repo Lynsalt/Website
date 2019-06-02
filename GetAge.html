@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<script type="text/javascript">
+function validateAge(){
+  var DOB = document.getElementById("DOB").value;
+  var pattern =/^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/;
+  if(DOB == null || DOB=="" ||!pattern.test(DOB)){
+	  document.getElementById("dobmg").innerHTML="Enter a valid date in the format MM/DD/YYYY.";
+  }
+  else{
+	  document.getElementById("dobmg").innerHTML="";
+  }
+};
+
+
+
+
+function calc(){
+	//current Date
+	var curdate = new Date ();
+	var month = (curdate.getMonth() +1);
+	var day   = curdate.getDate();
+	var year =  curdate.getFullYear();
+    var today = month + "/" + day + "/" + year;
+
+	var DOB = document.getElementById("DOB").value;
+	var AGI = parseInt(document.getElementById("gIncome").value)
+	document.getElementById("gIncome").value = "$" + AGI.toFixed(2);
+		//regular expression to validate date value
+		var regex =/^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/;
+		if(regex.test(DOB)){
+			//covert input date into date object
+			var DOBDate = new Date(DOB);
+			var DOBMonth =(DOBDate.getMonth() +1);
+			var DOBDay = DOBDate.getDate();
+			var DOBYear = DOBDate.getFullYear();
+			var DOBBirthday = DOBMonth + "/" + DOBDay + "/" + DOBYear;
+            const MAXAGE = 50;
+	        const MAXINCOME = 100000;
+			var Age = (curdate.getFullYear()-DOBDate.getFullYear());
+			if(Age < MAXAGE && AGI < MAXINCOME){
+				
+				document.getElementById("results").innerHTML ="you do not qualify";
+
+	}
+			else{
+				alert("You are" + Age);
+			}
+			
+			
+			
+		}
+	
+}
+
+</script>
+</head>
+
+<body>
+DOB<input type="text" id="DOB" onblur="validateAge();"/><br/><br/>
+AGI<input id="gIncome" type="text" onblur="getIncome();"><br/>
+<button type="button" onclick="calc();">Get Date</button>
+<div id="dobmg"></div>
+<div id="results"></div>
+<!--<button type="button" onclick="getDate();">Get Date</button>-->
+</body>
+</html>

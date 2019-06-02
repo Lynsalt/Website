@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" lang="en-gb" dir="ltr" >
+<head>
+<title>Health Care.gov</title>
+<script type="text/javascript" src="validate.js"></script>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<!--[if IE]>
+<style>
+.item {
+margin: 5px;
+padding: 10px;
+}
+</style>
+<![EndIf]-->
+<script type="text/javascript">
+
+function checkUser()
+{
+	var uname = document.getElementById("uname").value;
+	var u = uname[0];	
+	if ( (isAnumber(u)) || (!containsOnlyLetNums(uname)) || (!checkStringLength(uname, 6, 25)) )
+		alert("User name Must be min of 6 Characters, and max of 25 \n leters and numbers only.");
+		
+}
+
+function mypassword(){
+	var pwd = document.getElementById("pwd").value;
+	
+	if (!containsLettersAndNumbers(pwd)){
+		alert("password must contain letters and numbers");
+	}
+	if (!containsUpperAndLowerCaseLetters(pwd)){
+		alert("password must contain both upper and lower case letters");
+	}
+	if(pwd.length < 6) {
+		alert("your password must be a minimum of 6 characters.");
+		return false;
+	}
+	if(pwd.length > 6){
+		alert("your password must be a minimum of 6 characters.");
+		return false;
+	}
+	
+    if(!specialCharacters(pwd)){
+	    alert("password must contain special Characters (:!@#$%^&_)");
+	}
+	
+	
+
+	if(containsLettersAndNumbers(pwd) && specialCharacters(pwd) && containsUpperAndLowerCaseLetters(pwd) ){
+		document.getElementById("pwd").style.color="green";
+	}
+
+}
+
+function mandatory(){
+	var uname=document.getElementById("uname").value;
+	var pwd = document.getElementById("pwd").value
+	if( (uname =="" && pwd == "") || (uname == null && pwd == null) || (!containsLettersAndNumbers(pwd) || !containsUpperAndLowerCaseLetters(pwd))){
+		alert("You must enter a user name and password.");
+		window.location.assign("index.html")
+	}
+	else{
+		window.location.assign("signup.html")
+	}
+	
+	
+}
+
+
+/*
+
+function myFunction(a,b){
+	return a*b
+}*/
+/*document.getElementById("pwduname").innerHTML=myFunction(4,4);*/
+</script>
+</head>
+
+<body>
+
+<div id="wrapper">
+
+ <div id="int-wrapper">
+
+   <div id="banner-wrapper">
+        <div id="logoholder"></div>
+		  
+		  <div id = "menubar">
+		  
+		      <div id ="menu">
+                 <a href="index.html">Home</a>
+                 <a href="#">Get Insurance</a>
+                 <a href="#">Services</a>
+                 <a href="#">Support</a>
+                  <a href="#">Contact</a>
+			  </div>
+		  </div>
+             <div id="banner">
+                   <img src="images/banner.jpg" alt="banner" />
+              </div>
+		  </div>
+          <div id ="content-wrapper">
+
+           <div id ="content-left">
+           	<div id="formWrapper">
+                <h1>User Login</h1>
+                
+                <form action="signup.html" method="post" class="form1">
+                    <input type ="text" name="uname" id="uname" class="inputbox" onblur="checkUser();"/>
+                    <input type="password" name="pwd" id="pwd" class="inputbox" onblur="mypassword();"/><br/>
+                    
+                    <button type="button" value="submit" name="submit" onclick="mandatory();">Submit</button>
+                </form>
+
+                
+                <!--<form>
+                  <div id="login-left">
+                   <p><input type ="checkbox" name="chk" />Remember Me</p>
+                   </div>
+                   <div id="login-right">
+                      
+                      <div id ="login">
+                          
+                       <a href="#">Login</a>
+                       </div>
+                   </div>
+                </form>
+                
+                <div id ="left_links">
+                
+                <a href="#">Forget your password?</a><br/><br/>
+                <a href="#">Forget your username?</a>
+                
+                </div>-->
+             </div>
+           </div>
+           
+           
+           <div id ="content-right">
+                 <div id ="contentright-wrapper">
+            <h1>Welcome to Healthcare.gov !</h1>
+            <h2>The Best affordable health care available to all americans</h2>
+           
+            <p>If you want to find out if you qualify for lower costs on Marketplace coverage, you’ll need to provide information about your household members and income.
+The Marketplace application includes detailed instructions. It makes calculations using the information you provide to determine whether you’re eligible for lower costs.
+The information on this page can help you prepare before you apply.</p>
+                
+            <p class="sent">Important. Marketplace Open Enrollment ended March 31. You can still buy a Marketplace health plan only if you qualify for a special enrollment period. You can apply for Medicaid and CHIP any time. Learn about special enrollment periods and other coverage options after Open Enrollment. Open Enrollment for 2015 coverage starts November 15, 2014.</p>
+             </div>
+             
+             <div id ="contentbottom-wrapper">
+             <div id ="content-bottomleft">
+             <h3>Estimating your income</h3>
+             
+             <p>When you apply for lower costs in the Marketplace, you'll need to estimate your income for 2014.</P>
+             <h4>You can start by adding up the following items for:</h4>
+                 <ul>
+                      <li>You and your spouse, if you are married and will file a joint tax return</li>
+                      <li>Any dependents who make enough money to be required to file a tax return</li>
+                 </ul>
+                <h4>For each of the following sources, estimate what your income will be in 2014</h4>
+                  <ul>
+                      <li>Wages</li>
+                      <li>Salaries</li>
+                      <li>Tips</li>
+                  </ul>
+                  <br/>
+                   <div id ="readmore">
+              <a href="#">Read More</a>
+             
+             </div>
+                   
+             </div>
+             
+             
+             <div id ="content-bottomright">
+            <h3>Reporting on your household</h3>
+            <p><b>When filling out your application, include:</b></p>
+               <div id ="nav">
+                
+                <ul>
+                <li><a href="#">Yourself</a></li>
+                <li><a href="#">Your spouse</a></li>
+                <li><a href="#">Dependents</a></li>
+                <li><a href="#">Microwaves</a></li>
+                <li><a href="#">Anyone else under 21</a></li>
+                </ul>
+               
+               
+               </div>
+            
+            
+             </div>
+             
+           </div>
+            </div>
+        </div>
+     </div>
+</div>
+
+</body>
+</html>

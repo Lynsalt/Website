@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Bithday</title>
+<script type="text/javascript">
+function getAge(){
+	count = 0;
+	var bDay = document.getElementById("bDay").value
+	if(bDay.length != 10){
+		alert("Invalid date! The correct date format is like '01/01/2004'. Please try again.")
+		return false;
+		
+		for(var i=0; i < bDay.length; i++){
+			temp =="" + bDay.substring(i, i+1)
+			if(temp =="/")
+			count++;
+			if (valid.indexOf(temp) == "-1") {
+         alert("Invalid characters in your date. Please try again.")
+         return false;
+			}
+		}
+	}
+	else{
+		alert(bDay);
+	}
+}
+</script>
+</head>
+
+<body>
+BirthDay: 
+<input type="text" id="bDay" /><br/>
+<button type="button" onclick="getAge();">Get Age</button>
+</body>
+</html>

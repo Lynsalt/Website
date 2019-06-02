@@ -1,0 +1,36 @@
+<HTML>
+<HEAD>
+<TITLE>Legal Drinking Age </TITLE>
+<form>
+<input type="button" value="Submit" onClick="legalAge()">
+</form>
+</HEAD>
+<BODY>
+<script language="JavaScript" type="text/JavaScript">
+
+var curdate = new Date()
+document.write(curdate.getDate())
+document.write("/")
+document.write(curdate.getMonth() + 1)
+document.write("/")
+document.write(curdate.getFullYear())
+function legalAge()
+{
+var ageString;
+var legalAge=21;
+var ageNum;
+ageString = prompt ("Please enter your age", " ");
+ageNum = parseInt(ageString);
+document.write(ageString + "<br>");
+if (ageNum >= legalAge)
+{alert ("Let's Party!");}
+else if (ageNum < legalAge)
+{alert ("Sorry! You're too young to drink!");}
+else if (ageNum < 0)
+{alert ("Please enter a valid age"); }
+else
+{alert ("Please enter a valid age"); }
+}
+</SCRIPT>
+</BODY>
+</HTML>
